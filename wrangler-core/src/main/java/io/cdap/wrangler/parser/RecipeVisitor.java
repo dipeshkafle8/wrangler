@@ -38,6 +38,8 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import io.cdap.wrangler.api.parser.ByteSize;
+import io.cdap.wrangler.api.parser.TimeDuration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -76,7 +78,7 @@ public final class RecipeVisitor extends DirectivesBaseVisitor<RecipeSymbol.Buil
   public RecipeSymbol getCompiledUnit() {
     return builder.build();
   }
-
+  
   /**
    * A Recipe is made up of Directives and Directives is made up of each individual
    * Directive. This method is invoked on every visit to a new directive in the recipe.
@@ -301,10 +303,28 @@ public final class RecipeVisitor extends DirectivesBaseVisitor<RecipeSymbol.Buil
     return builder;
   }
 
+   /**
+      * This visitor methods extracts the byte size specified. It creates a token type {@code ByteSize} to be
+      * added to {@code TokenGroup}
+      *
+      */
+     @Override
+     public RecipeSymbol.Builder visitByteSizeArg(DirectivesParser.ByteSizeArgContext ctx) {
+         builder.addToken(new ByteSize(ctx.getText()));
+         return builder;
+     }
+
+    @Override
+     public RecipeSymbol.Builder visitTimeDurationArg(DirectivesParser.TimeDurationArgContext ctx) {
+         builder.addToken(new TimeDuration(ctx.getText()));
+         return builder;
+     }
+
   /**
    * This visitor methods extracts the list of strings specified. It creates a token
    * type <code>StringList</code> to be added to <code>TokenGroup</code>.
    */
+  
   @Override
   public RecipeSymbol.Builder visitStringList(DirectivesParser.StringListContext ctx) {
     List<TerminalNode> strings = ctx.String();

@@ -1,0 +1,77 @@
+"Can you outline the primary objective of this assignment?"
+
+"Could you elaborate on CDAP Wrangler, including its functions and purpose?"
+
+"What are the main modules involved in this project, specifically wrangler-core and wrangler-api?"
+
+"What is the role of a 'directive' within Wrangler?"
+
+"What is the recommended workflow for this assignment, including forking, implementation, testing, and committing?"
+
+"What are the definitions of lexer and parser rules in ANTLR?"
+
+"How should the BYTE_SIZE and TIME_DURATION tokens be structured, and what are their characteristics?"
+
+"What are BYTE_UNIT and TIME_UNIT fragments, and what is their utility?"
+
+"What is the procedure for writing ANTLR lexer rules for BYTE_UNIT, TIME_UNIT, BYTE_SIZE, and TIME_DURATION?"
+
+"How should the parser rules be modified to incorporate these new tokens, such as value, byteSizeArg, and timeDurationArg?"
+
+"What is the purpose of the mvn compile command, and how can it be used to regenerate the parser and lexer code?"
+
+"What are the steps to verify that the ANTLR code has been regenerated successfully?"
+
+"What is the function of the wrangler-api module?"
+
+"What is the process for creating the ByteSize and TimeDuration Java classes, and what should their inheritance be?"
+
+"What should be the functionality of the constructors for ByteSize and TimeDuration?"
+
+"What methods should be included in ByteSize and TimeDuration, such as getBytes()?"
+
+"What is the approach for parsing input strings like '10KB' and '150ms' within the constructors?"
+
+"How can different units be converted to canonical units (bytes, milliseconds) in Java?"
+
+"What is the method for adding BYTE_SIZE and TIME_DURATION to the Token Types?"
+
+"Where and how should the usage and token definitions be updated to support the new token types?"
+
+"What is the role of the wrangler-core module?"
+
+"In the context of ANTLR, what are 'visit' methods?"
+
+"What is the procedure for adding visit methods for the new parser rules, or modifying existing ones?"
+
+"How can the text of a parsed token be extracted, such as using ctx.getText()?"
+
+"What is the process for creating instances of the ByteSize and TimeDuration classes within the visitor methods?"
+
+"How are the created token instances added to the TokenGroup?"
+
+"What is the procedure for creating a new directive class in Java, and what interface should it implement?"
+
+"How are the directive's arguments defined using UsageDefinition and the define() method?"
+
+"How can the argument values be accessed within the initialize() method?"
+
+"What is the process for reading data from input columns and writing to output columns in the execute() method?"
+
+"How can ExecutorContext and a Store be used to accumulate totals during execution?"
+
+"Where and how should the final unit conversions be performed, such as converting bytes to MB and milliseconds to seconds?"
+
+"How should the optional arguments for output units and aggregation type be handled?"
+
+"What is the method for constructing and returning the final Row with the aggregated results?"
+
+"What is the process for writing unit tests for the ByteSize and TimeDuration classes?"
+
+"How can parser tests be written to verify the correct parsing of the new syntax?"
+
+"What is the approach for writing comprehensive unit tests for the AggregateStats directive, including various scenarios and edge cases?"
+
+"What is TestingRig, and how can it be used to execute recipes and test directives?"
+
+"What assertions should be included in the tests to verify the correctness of the results?"

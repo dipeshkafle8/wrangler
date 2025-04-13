@@ -71,16 +71,17 @@
       * @return nanos
       * @throws IllegalArgumentException if the unit is not "MS" or "S"
       */
-     public Long getNanos() {
-         switch (unit) {
+       public static Double convertNanosToUnit(Double nanos, String unit) {
+         switch (unit.toUpperCase()) {
              case "MS":
-                 return (long) (value * 1000000.0);
+                 return nanos / 1000000.0;
              case "S":
-                 return (long) (value * 1000000.0 * 1000.0);
+                 return nanos / 1000000.0 / 1000.0;
              default:
                  throw new IllegalArgumentException("Invalid unit: " + unit);
          }
      }
+ 
  
      @Override
      public Object value() {
